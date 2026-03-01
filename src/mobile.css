@@ -1,0 +1,68 @@
+@media screen and (max-width: 768px) {
+    /* html, body {
+        overflow: hidden;
+    } */
+
+    /* body {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    } */
+
+    /* 
+
+    .scrollableForecast {
+        width: 33.5625rem;
+        height: 33.5625rem;
+        background: url("assets/Forecast BG.png") 100% / cover no-repeat;
+        position: absolute;
+        top: 21rem;
+        left: -4.215rem;
+    }
+
+    .blocks {
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        top: 21.5rem;
+        left: 4rem;
+    }
+
+    .forecastBlock {
+        width: 7.7314rem;
+        height: 12.2263rem;
+        background: url("assets/Blue Theme Selected Bar.png") 50% / cover no-repeat;
+        /* position: absolute;
+        top: 25rem;
+        left: 0.0446rem; 
+
+    } */
+
+    .App {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .window {
+        width: 29rem;
+        aspect-ratio: 58 / 65;
+    }
+
+    img{
+        width: 100%;
+        height: 100%;
+    }
+
+    .pixel {
+        image-rendering: -moz-crisp-edges;
+        image-rendering: -webkit-crisp-edges;
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
+    }
+
+
+}
+

@@ -1,8 +1,29 @@
-.window {
-  width: 33rem;
-  height: 33rem;
+body {
+  overflow: hidden;
+}
+
+.App {
+
+}
+
+/* .window {
+  width: 38rem;
+  height: 38rem;
   background: url(assets/window.png)0px 0px / 100% 100% no-repeat;
   position: absolute;
   top: 8.875rem;
   left: -2.1rem;
 }
+
+.scrollableForecast {
+  width: 38.1rem;
+  height: 38.1rem;
+  background: url("assets/Forecast BG.png") 100% / cover no-repeat;
+  position: absolute;
+  top: 20rem;
+  left: -4.72rem;
+}
+
+.forecastBlock {
+  background: url("assets/Blue Theme Selected Bar.png");
+} */
