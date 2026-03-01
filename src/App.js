@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import './mobile.css';
+import { useEffect } from 'react';
 
 function Window() {
   return (
@@ -33,9 +34,20 @@ function ForecastBlock({theme, selected}) {
   )
 }
 
+
 function App() {
+  let theme = "Blue"
+  let themeText = require("./assets/" + theme + " Wallpaper.png")
   return (
-    <div className="App">
+    <div className="App" style={{
+      background: 'url(' + themeText + ')',
+      width: '100vw',
+      height: '100vh',
+      margin: '0',
+      backgroundSize: '15rem',
+      imageRendering: 'pixelated',
+      }}>
+        
       <h1>Temporary Text</h1>
 
       <Window />
