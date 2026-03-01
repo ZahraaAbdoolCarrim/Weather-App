@@ -14,19 +14,22 @@ function ScrollableForcast() {
   return (
     <div className='scrollableForecast pixel'>
       <img src={require('./assets/Forecast BG.png')}></img>
-      {/* <div className='blocks'>
-        <ForecastBlock />
-        <ForecastBlock />
-        <ForecastBlock />
-        <ForecastBlock />
-      </div> */}
+      <div className='blocks'>
+        <ForecastBlock theme={'Blue'} selected={'Yes'}/>
+        <ForecastBlock theme={'Blue'} selected={'No'}/>
+        <ForecastBlock theme={'Blue'} selected={'No'}/>
+        <ForecastBlock theme={'Blue'} selected={'No'}/>
+      </div>
     </div>
   )
 }
 
-function ForecastBlock() {
+function ForecastBlock({theme, selected}) {
   return (
-    <div className='forecastBlock'></div>
+    <div className='forecastBlock pixel'>
+      <img src={require('./assets/' + theme + ' Theme ' + selected + ' Bar.png')}></img>
+      
+    </div>
   )
 }
 
