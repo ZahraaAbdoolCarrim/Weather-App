@@ -13,15 +13,6 @@
 
     /* 
 
-    .scrollableForecast {
-        width: 33.5625rem;
-        height: 33.5625rem;
-        background: url("assets/Forecast BG.png") 100% / cover no-repeat;
-        position: absolute;
-        top: 21rem;
-        left: -4.215rem;
-    }
-
     .blocks {
         display: flex;
         justify-content: space-between;
@@ -46,12 +37,7 @@
         align-items: center;
     }
 
-    .window {
-        width: 29rem;
-        aspect-ratio: 58 / 65;
-    }
-
-    img{
+    img {
         width: 100%;
         height: 100%;
     }
@@ -62,6 +48,21 @@
         image-rendering: pixelated;
         image-rendering: crisp-edges;
     }
+
+    .window {
+        width: 29rem;
+        aspect-ratio: 58 / 65;
+    }
+
+    .scrollableForecast {
+        margin-top: 2rem;
+        width: 25rem;
+        aspect-ratio: 48 / 22;
+    }
+
+
+
+
 
 
 }

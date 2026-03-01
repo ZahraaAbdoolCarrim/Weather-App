@@ -12,13 +12,14 @@ function Window() {
 
 function ScrollableForcast() {
   return (
-    <div className='scrollableForecast'>
-      <div className='blocks'>
+    <div className='scrollableForecast pixel'>
+      <img src={require('./assets/Forecast BG.png')}></img>
+      {/* <div className='blocks'>
         <ForecastBlock />
         <ForecastBlock />
         <ForecastBlock />
         <ForecastBlock />
-      </div>
+      </div> */}
     </div>
   )
 }
