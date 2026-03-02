@@ -6,7 +6,8 @@ import { useEffect, useState } from 'react';
 function Window() {
   return (
     <div className='window pixel' >
-      <img src={require('./assets/window.png')}></img>
+      <img id='window' src={require('./assets/window.png')}></img>
+      <Pet pet={"Cat"} colour={"White"}/>
     </div>
   )
 }
@@ -80,6 +81,14 @@ function Location({theme}) {
   )
 }
 
+function Pet({pet, colour}) {
+  return (
+    <div className='pet pixel'>
+      <img src={require('./assets/' + pet + ' ' + colour + '.gif')}></img>
+    </div>
+  )
+}
+
 function App() {
 
   let theme = "Blue";
@@ -100,6 +109,7 @@ function App() {
 
       <Location theme={"Blue"}/>
       <Window />
+
       <ScrollableForcast />
 
     </div>

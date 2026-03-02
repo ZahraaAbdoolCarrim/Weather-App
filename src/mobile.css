@@ -59,6 +59,20 @@
     }
 
     .window {
+        position: relative;
+    }
+
+    .pet {
+        position: absolute;
+        bottom: 4.5rem;
+        left: 5rem;
+        width: 12rem;
+        aspect-ratio: 32 / 32;
+    }
+
+    #window {
+        /* width: 115vw;
+        height: 128vw; */
         width: 29rem;
         aspect-ratio: 58 / 65;
     }
