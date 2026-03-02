@@ -1,0 +1,71 @@
+@media screen and (max-width: 768px) {
+    html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+
+        overflow: hidden;
+    }
+
+    .App {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .pixel {
+        image-rendering: -moz-crisp-edges;
+        image-rendering: -webkit-crisp-edges;
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
+    }
+
+    .menu {
+        margin: 0.5rem 0rem 2rem 0.5rem;
+        align-self: start; 
+    }
+
+    #menuButton {
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        width: 5rem;
+        aspect-ratio: 16 / 11;
+        margin: 0.5rem 0rem 0rem 0.5rem;
+        align-self: start;
+    }
+
+    .window {
+        width: 29rem;
+        aspect-ratio: 58 / 65;
+    }
+
+    .scrollableForecast {
+        margin-top: 0.5rem;
+        width: 25rem;
+        aspect-ratio: 48 / 22;
+        position: relative;
+    }
+
+    .blocks {
+        height: 9rem;
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        top: 1.3rem;
+        left: 0.95rem;
+        gap: 0.4rem;
+    }
+
+
+
+
+
+
+}
+
