@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import './mobile.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 function Window() {
   return (
@@ -29,26 +29,55 @@ function ForecastBlock({theme, selected}) {
   return (
     <div className='forecastBlock pixel'>
       <img src={require('./assets/' + theme + ' Theme ' + selected + ' Bar.png')}></img>
-      
+    </div>
+  )
+}
+
+function Menu({theme}) {
+  let themes = ["Blue", "Purple"];
+  let themeNum = 0;
+
+  let themeTextMenu = require("./assets/" + theme + " Menu.png")
+
+  const [wallTheme, setTheme] = useState(themes[themeNum])
+
+  const click = wallTheme => {
+    themeNum++;
+    if (themeNum >= (themes.length)) {
+      themeNum = 0;
+    }
+    console.log("num: " + themeNum)
+    console.log("length: " + (themes.length - 1))
+    setTheme(wallTheme);
+  }
+  useEffect(() => {
+    let themeTextWall = require("./assets/" + wallTheme + " Wallpaper.png");
+    document.getElementsByClassName("App")[0].style.background = 'url(' + themeTextWall + ')';
+    document.getElementsByClassName("App")[0].style.backgroundSize= '15rem';
+
+  })
+  return (
+    <div className='menu pixel'>
+      <button id='menuButton' onClick={() => click(themes[themeNum])} style={{background: 'url(' + themeTextMenu + ') 100% / cover no-repeat'}}></button>
     </div>
   )
 }
 
 
 function App() {
-  let theme = "Blue"
-  let themeText = require("./assets/" + theme + " Wallpaper.png")
+
+  let theme = "Blue";
+  let themeText = require("./assets/" + theme + " Wallpaper.png");
   return (
     <div className="App" style={{
       background: 'url(' + themeText + ')',
       width: '100vw',
       height: '100vh',
-      margin: '0',
       backgroundSize: '15rem',
       imageRendering: 'pixelated',
       }}>
         
-      <h1>Temporary Text</h1>
+      <Menu theme={"Blue"}/>
 
       <Window />
       <ScrollableForcast />

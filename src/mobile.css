@@ -8,14 +8,6 @@
     }
 
     .App {
-
-        /* background: url('assets/Blue Wallpaper.png'); */
-        /* width: '100vw';
-        height: '100vh';
-        margin: '0';
-        background-size: '15rem';
-        image-rendering: 'pixelated'; */
-
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -33,13 +25,28 @@
         image-rendering: crisp-edges;
     }
 
+    .menu {
+        margin: 0.5rem 0rem 2rem 0.5rem;
+        align-self: start; 
+    }
+
+    #menuButton {
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        width: 5rem;
+        aspect-ratio: 16 / 11;
+        margin: 0.5rem 0rem 0rem 0.5rem;
+        align-self: start;
+    }
+
     .window {
         width: 29rem;
         aspect-ratio: 58 / 65;
     }
 
     .scrollableForecast {
-        margin-top: 2rem;
+        margin-top: 0.5rem;
         width: 25rem;
         aspect-ratio: 48 / 22;
         position: relative;
