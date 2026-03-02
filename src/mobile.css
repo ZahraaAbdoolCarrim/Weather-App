@@ -25,19 +25,31 @@
         image-rendering: crisp-edges;
     }
 
+    #top {
+        display: flex;
+        margin-top: 0.5rem;
+        justify-content: space-between;
+        width: 100vw;
+    }
+
     .menu {
-        margin: 0.5rem 0rem 2rem 0.5rem;
-        align-self: start; 
+        margin-left: 0.5rem;
+        justify-self: start; 
+    }
+
+    #menuButton, .tab {
+        width: 5rem;
+        aspect-ratio: 16 / 11;
     }
 
     #menuButton {
         border: none;
-        padding: 0;
         cursor: pointer;
-        width: 5rem;
-        aspect-ratio: 16 / 11;
-        margin: 0.5rem 0rem 0rem 0.5rem;
-        align-self: start;
+    }
+
+    .tab {
+        margin-right: 0.5rem;
+        justify-self: end;
     }
 
     .window {

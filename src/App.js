@@ -63,6 +63,14 @@ function Menu({theme}) {
   )
 }
 
+function Tab({theme}) {
+  return (
+    <div className='tab pixel'>
+      <img src={require('./assets/' + theme + ' Tab.png')}></img>
+    </div>
+  )
+
+}
 
 function App() {
 
@@ -77,7 +85,11 @@ function App() {
       imageRendering: 'pixelated',
       }}>
         
-      <Menu theme={"Blue"}/>
+      <div id='top'>
+        <Menu theme={"Blue"}/>
+        <Tab theme={"Blue"}/>
+      </div>
+
 
       <Window />
       <ScrollableForcast />
