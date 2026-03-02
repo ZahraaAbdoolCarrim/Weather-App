@@ -72,6 +72,14 @@ function Tab({theme}) {
 
 }
 
+function Location({theme}) {
+  return (
+    <div className='locationBg pixel'>
+      <img src={require('./assets/' + theme + ' LocationBG.png')}></img>
+    </div>
+  )
+}
+
 function App() {
 
   let theme = "Blue";
@@ -90,7 +98,7 @@ function App() {
         <Tab theme={"Blue"}/>
       </div>
 
-
+      <Location theme={"Blue"}/>
       <Window />
       <ScrollableForcast />
 

@@ -4,7 +4,7 @@
         height: 100%;
         margin: 0;
 
-        overflow: hidden;
+        /* overflow: hidden; */
     }
 
     .App {
@@ -50,6 +50,12 @@
     .tab {
         margin-right: 0.5rem;
         justify-self: end;
+    }
+
+    .locationBg {
+        margin-bottom: 0.25rem;
+        aspect-ratio: 54 / 7;
+        width: 19rem;
     }
 
     .window {
