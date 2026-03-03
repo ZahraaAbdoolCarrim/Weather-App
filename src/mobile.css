@@ -4,7 +4,7 @@
         height: 100%;
         margin: 0;
 
-        /* overflow: hidden; */
+        overflow: hidden;
     }
 
     .App {
@@ -94,6 +94,47 @@
         gap: 0.4rem;
     }
 
+    .forecastBlock {
+        position: relative;
+    }
+
+    #info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #time {
+        text-align: center;
+        font-family: "Jersey 15";
+        font-size: 2rem;
+        position: absolute;
+        top: -1.5rem;
+    }
+
+    #cloud {
+        position: absolute;
+        top: 2.5rem;
+        width: 3.5rem;
+        height: 3.5rem;
+        aspect-ratio: 1 / 1;
+    }
+
+    #precipitation {
+        position: absolute;
+        bottom: 0.1rem;
+        text-align: center;
+        font-family: "Jersey 15";
+        font-size: 1.5rem;
+    }
+
+    #temp {
+        position: absolute;
+        bottom: -2rem;
+        text-align: center;
+        font-family: "Jersey 15";
+        font-size: 2rem;
+    }
 
 
 

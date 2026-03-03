@@ -17,19 +17,25 @@ function ScrollableForcast() {
     <div className='scrollableForecast pixel'>
       <img src={require('./assets/Forecast BG.png')}></img>
       <div className='blocks'>
-        <ForecastBlock theme={'Blue'} selected={'Yes'}/>
-        <ForecastBlock theme={'Blue'} selected={'No'}/>
-        <ForecastBlock theme={'Blue'} selected={'No'}/>
-        <ForecastBlock theme={'Blue'} selected={'No'}/>
+        <ForecastBlock theme={'Blue'} selected={'Yes'} time={"13:00"} timeColour={"#0D2B45"} cloud={"Cloudy"} precip={"1%"} precipColour={"#203C56"} temp={"5°C"} tempColour={"#0D2B45"}/>
+        <ForecastBlock theme={'Blue'} selected={'No'} time={"14:00"} timeColour={"#F4D3AE"} cloud={"Rain"} precip={"1%"} precipColour={"#D08159"} temp={"5°C"} tempColour={"#FB7B3B"}/>
+        <ForecastBlock theme={'Blue'} selected={'No'} time={"15:00"} timeColour={"#F4D3AE"} cloud={"Light_Rain"} precip={"1%"} precipColour={"#D08159"} temp={"5°C"} tempColour={"#FB7B3B"}/>
+        <ForecastBlock theme={'Blue'} selected={'No'} time={"16:00"} timeColour={"#F4D3AE"} cloud={"Snow"} precip={"1%"} precipColour={"#D08159"} temp={"5°C"} tempColour={"#FB7B3B"}/>
       </div>
     </div>
   )
 }
 
-function ForecastBlock({theme, selected}) {
+function ForecastBlock({theme, selected, time, timeColour, cloud, precip, precipColour, temp, tempColour}) {
   return (
     <div className='forecastBlock pixel'>
       <img src={require('./assets/' + theme + ' Theme ' + selected + ' Bar.png')}></img>
+      <div id='info'>
+        <p id='time' style={{color: timeColour}}>{time}</p>
+        <img id='cloud' className='pixel' src={require('./assets/' + cloud + " Cloud.png")}></img>
+        <p id='precipitation' style={{color: precipColour}}>{precip}</p>
+        <p id='temp' style={{color: tempColour}}>{temp}</p>
+      </div>
     </div>
   )
 }
