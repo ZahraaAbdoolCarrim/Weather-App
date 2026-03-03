@@ -18,6 +18,10 @@
         height: 100%;
     }
 
+    p {
+        font-family: "Jersey 15";
+    }
+
     .pixel {
         image-rendering: -moz-crisp-edges;
         image-rendering: -webkit-crisp-edges;
@@ -56,6 +60,36 @@
         margin-bottom: 0.25rem;
         aspect-ratio: 54 / 7;
         width: 80vw;
+        position: relative;
+        text-align: center;
+    }
+
+    #locationInfo {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        gap: 1rem;
+    }
+
+    #location {
+        margin: 0;
+        font-size: 1.5rem;
+    }
+
+    #locationLink {
+        width: 100%;
+        height: 100%;
+        padding: 1rem;
+        top: 0;
+    }
+
+    #pin {
+        width: 6%;
+        height: 50%;
     }
 
     .window {
@@ -110,7 +144,6 @@
 
     #time {
         text-align: center;
-        font-family: "Jersey 15";
         font-size: 2rem;
         margin: 0;
     }
@@ -124,14 +157,12 @@
     #precipitation {
         margin: 0;
         text-align: center;
-        font-family: "Jersey 15";
         font-size: 1.5rem;
     }
 
     #temp {
         margin: 0;
         text-align: center;
-        font-family: "Jersey 15";
         font-size: 2rem;
     }
 

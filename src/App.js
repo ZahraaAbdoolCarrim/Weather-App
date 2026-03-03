@@ -79,10 +79,14 @@ function Tab({theme}) {
 
 }
 
-function Location({theme}) {
+function Location({theme, location, locationColour}) {
   return (
     <div className='locationBg pixel'>
-      <img src={require('./assets/' + theme + ' LocationBG.png')}></img>
+      <a id='locationLink' href='https://www.google.com'><img src={require('./assets/' + theme + ' LocationBG.png')}></img></a>
+      <div id='locationInfo'>
+        <img id='pin' className='pixel' src={require('./assets/Location Pin.png')}></img>
+        <p id='location' style={{color: locationColour}}>{location}</p>
+      </div>
     </div>
   )
 }
@@ -142,7 +146,7 @@ function App() {
         <Tab theme={"Blue"}/>
       </div>
 
-      <Location theme={"Blue"}/>
+      <Location theme={"Blue"} location={"Current Location"} locationColour={"#203C56"}/>
       <Window />
 
       <ScrollableForcast />
