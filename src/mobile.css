@@ -55,7 +55,7 @@
     .locationBg {
         margin-bottom: 0.25rem;
         aspect-ratio: 54 / 7;
-        width: 19rem;
+        width: 80vw;
     }
 
     .window {
@@ -64,22 +64,21 @@
 
     .pet {
         position: absolute;
-        bottom: 4.5rem;
-        left: 5rem;
+        bottom: 15%;
+        left: 18%;
         width: 12rem;
         aspect-ratio: 32 / 32;
     }
 
     #window {
-        /* width: 115vw;
-        height: 128vw; */
-        width: 29rem;
+        width: 115vw;
+        height: 128vw;
         aspect-ratio: 58 / 65;
     }
 
     .scrollableForecast {
         margin-top: 0.5rem;
-        width: 25rem;
+        width: 100vw;
         aspect-ratio: 48 / 22;
         position: relative;
     }
@@ -92,45 +91,45 @@
         top: 1.3rem;
         left: 0.95rem;
         gap: 0.4rem;
+
     }
 
     .forecastBlock {
         position: relative;
+
     }
 
     #info {
         display: flex;
         flex-direction: column;
         align-items: center;
+        position: absolute;
+        top: 0rem;
+        left: 1rem;
     }
 
     #time {
         text-align: center;
         font-family: "Jersey 15";
         font-size: 2rem;
-        position: absolute;
-        top: -1.5rem;
+        margin: 0;
     }
 
     #cloud {
-        position: absolute;
-        top: 2.5rem;
         width: 3.5rem;
         height: 3.5rem;
         aspect-ratio: 1 / 1;
     }
 
     #precipitation {
-        position: absolute;
-        bottom: 0.1rem;
+        margin: 0;
         text-align: center;
         font-family: "Jersey 15";
         font-size: 1.5rem;
     }
 
     #temp {
-        position: absolute;
-        bottom: -2rem;
+        margin: 0;
         text-align: center;
         font-family: "Jersey 15";
         font-size: 2rem;
