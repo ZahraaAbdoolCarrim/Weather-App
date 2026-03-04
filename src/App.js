@@ -3,6 +3,8 @@ import './App.css';
 import './mobile.css';
 import { useEffect, useState } from 'react';
 
+
+
 function Window() {
   return (
     <div className='window pixel' >
@@ -44,6 +46,7 @@ function ForecastBlock({theme, selected, time, timeColour, cloud, precip, precip
   )
 }
 
+/*I'm gonna try implement the sign up thing I apologise if it crashes*/
 function Menu({theme}) {
   let themes = ["Blue", "Purple"];
   let themeNum = 0;
@@ -67,11 +70,18 @@ function Menu({theme}) {
     document.getElementsByClassName("App")[0].style.backgroundSize= '15rem';
 
   })
+  /*
   return (
     <div className='menu pixel'>
       <button id='menuButton' onClick={() => click(themes[themeNum])} style={{background: 'url(' + themeTextMenu + ') 100% / cover no-repeat'}}></button>
     </div>
   )
+  */
+ /*help idk why its not working
+ the url changes but the page doesnt*/
+ return (
+    <a href='C:/Users/Aqeela Begum/Documents/Uni Work/Year 2/semester 2/ECS522U GUI/project/Implementation/Git Repo/Weather-App/public/main.html' title="sign up temporarily"><button id='menuButton' style={{background: 'url(' + themeTextMenu + ') 100% / cover no-repeat'}}></button></a>
+ )
 }
 
 function Tab({theme, colour, humidity, pollen}) {
