@@ -60,7 +60,31 @@
     .tab {
         margin-right: 0.5rem;
         justify-self: end;
+        position: relative;
     }
+
+    #tabInfo {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 0.4rem;
+        left: 0.5rem;
+    }
+
+    #humidityInfo, #pollenInfo {
+        display: flex;
+        align-items: center;
+        
+    }
+
+    #humidityInfo p, #pollenInfo p {
+        margin: 0;
+    }
+
+    #flower, #raindrop {
+        width: 38%;
+    }
+
 
     .location {
         margin-bottom: 0.25rem;

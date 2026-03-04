@@ -70,10 +70,20 @@ function Menu({theme}) {
   )
 }
 
-function Tab({theme}) {
+function Tab({theme, colour, humidity, pollen}) {
   return (
     <div className='tab pixel'>
       <img src={require('./assets/' + theme + ' Tab.png')}></img>
+      <div id='tabInfo'>
+        <div id='humidityInfo'>
+          <img id='raindrop' className='pixel' src={require('./assets/Rain Drop.png')}></img>
+          <p style={{color: colour}}>{humidity}</p>
+        </div>
+        <div id='pollenInfo'>
+          <img id='flower' className='pixel' src={require('./assets/Flower.png')}></img>
+          <p style={{color: colour}}>{pollen}</p>
+        </div>
+      </div>
     </div>
   )
 
@@ -144,7 +154,7 @@ function App() {
       <div className='container'>
         <div id='top'>
           <Menu theme={"Blue"}/>
-          <Tab theme={"Blue"}/>
+          <Tab theme={"Blue"} colour={"#FFDCB3"} humidity={"100%"} pollen={"2"}/>
         </div>
 
         <Location theme={"Blue"} location={"Current Location"} locationColour={"#203C56"}/>
