@@ -93,6 +93,7 @@ function Pet({pet, colour}) {
       <img src={require('./assets/' + pet + ' ' + colour + '.gif')}></img>
     </div>
   )
+}
 let longitude, latitude;
 
 navigator.geolocation.getCurrentPosition(
