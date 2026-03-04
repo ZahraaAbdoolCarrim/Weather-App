@@ -6,16 +6,16 @@ import { useEffect, useState } from 'react';
 function Window() {
   return (
     <div className='window pixel' >
-      <img id='window' src={require('./assets/window.png')}></img>
+      <img id='window' src={require('./assets/Window.png')}></img>
       <Pet pet={"Cat"} colour={"White"}/>
     </div>
   )
 }
 
-function ScrollableForcast() {
+function ScrollableForcast({theme}) {
   return (
     <div className='scrollableForecast pixel'>
-      <img src={require('./assets/Forecast BG.png')}></img>
+      <img src={require('./assets/Themes/' + theme + '/ForecastBG.png')}></img>
       <div id='blocksContainer'>
         <div className='blocks'>
           <ForecastBlock theme={'Blue'} selected={'Yes'} time={"13:00"} timeColour={"#0D2B45"} cloud={"Cloudy"} precip={"1%"} precipColour={"#203C56"} temp={"5°C"} tempColour={"#0D2B45"}/>
@@ -33,10 +33,10 @@ function ScrollableForcast() {
 function ForecastBlock({theme, selected, time, timeColour, cloud, precip, precipColour, temp, tempColour}) {
   return (
     <div className='forecastBlock pixel'>
-      <img src={require('./assets/' + theme + ' Theme ' + selected + ' Bar.png')}></img>
+      <img src={require('./assets/Themes/' + theme + '/' + selected + ' Bar.png')}></img>
       <div id='info'>
         <p id='time' style={{color: timeColour}}>{time}</p>
-        <img id='cloud' className='pixel' src={require('./assets/' + cloud + " Cloud.png")}></img>
+        <img id='cloud' className='pixel' src={require('./assets/Weather Icons/' + cloud + " Cloud.png")}></img>
         <p id='precipitation' style={{color: precipColour}}>{precip}</p>
         <p id='temp' style={{color: tempColour}}>{temp}</p>
       </div>
@@ -48,7 +48,7 @@ function Menu({theme}) {
   let themes = ["Blue", "Purple"];
   let themeNum = 0;
 
-  let themeTextMenu = require("./assets/" + theme + " Menu.png")
+  let themeTextMenu = require("./assets/Themes/" + theme + "/Menu.png")
 
   const [wallTheme, setTheme] = useState(themes[themeNum])
 
@@ -62,7 +62,7 @@ function Menu({theme}) {
     setTheme(wallTheme);
   }
   useEffect(() => {
-    let themeTextWall = require("./assets/" + wallTheme + " Wallpaper.png");
+    let themeTextWall = require("./assets/Themes/" + wallTheme + "/Wallpaper.png");
     document.getElementsByClassName("App")[0].style.background = 'url(' + themeTextWall + ')';
     document.getElementsByClassName("App")[0].style.backgroundSize= '15rem';
 
@@ -77,7 +77,7 @@ function Menu({theme}) {
 function Tab({theme, colour, humidity, pollen}) {
   return (
     <div className='tab pixel'>
-      <img src={require('./assets/' + theme + ' Tab.png')}></img>
+      <img src={require('./assets/Themes/' + theme + '/Tab.png')}></img>
       <div id='tabContainer'>
         <div id='tabInfo'>
           <img id='raindrop' className='pixel' src={require('./assets/Rain Drop.png')}></img>
@@ -94,7 +94,7 @@ function Tab({theme, colour, humidity, pollen}) {
 function Location({theme, location, locationColour}) {
   return (
     <div className='location pixel'>
-      <img src={require('./assets/' + theme + ' LocationBG.png')}></img>
+      <img src={require('./assets/Themes/' + theme + '/LocationBG.png')}></img>
       <div id='locationInfo'>
         <img id='pin' className='pixel' src={require('./assets/Location Pin.png')}></img>
         <a id='locationText' href='https://www.google.com' style={{color: locationColour}}>{location}</a>
@@ -106,7 +106,7 @@ function Location({theme, location, locationColour}) {
 function Pet({pet, colour}) {
   return (
     <div className='pet pixel'>
-      <img src={require('./assets/' + pet + ' ' + colour + '.gif')}></img>
+      <img src={require('./assets/Pets/' + pet + ' ' + colour + '.gif')}></img>
     </div>
   )
 }
@@ -143,7 +143,7 @@ async function fetchWeatherByCoords(latitude, longitude) {
 function App() {
 
   let theme = "Blue";
-  let themeText = require("./assets/" + theme + " Wallpaper.png");
+  let themeText = require("./assets/Themes/" + theme + "/Wallpaper.png");
   return (
     <div className="App" style={{
       background: 'url(' + themeText + ')',
@@ -162,7 +162,7 @@ function App() {
         <Location theme={"Blue"} location={"Current Location"} locationColour={"#203C56"}/>
         <Window />
 
-        <ScrollableForcast />
+        <ScrollableForcast theme={"Blue"}/>
       </div>
 
     </div>
