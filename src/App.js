@@ -3,6 +3,7 @@ import './App.css';
 import './mobile.css';
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { SignUp } from './sign-up.js';
 
 
 
@@ -81,7 +82,8 @@ function Menu({theme}) {
  /*help idk why its not working
  the url changes but the page doesnt*/
  return (
-    <a href={require('./sign-up.html')} title="sign up temporarily"><button id='menuButton' style={{background: 'url(' + themeTextMenu + ') 100% / cover no-repeat'}}></button></a>
+    <Link to="/sign-up"><button id='menuButton' style={{background: 'url(' + themeTextMenu + ') 100% / cover no-repeat'}}></button></Link>
+   
  )
 }
 
@@ -178,6 +180,10 @@ function App() {
         </div>
 
       </div>
+
+      <Routes>
+        <Route path='/sign-up' element={<SignUp />} />
+      </Routes>
     </BrowserRouter>
   );
 }
