@@ -80,7 +80,7 @@ function Menu({theme}) {
  /*help idk why its not working
  the url changes but the page doesnt*/
  return (
-    <a href='C:/Users/Aqeela Begum/Documents/Uni Work/Year 2/semester 2/ECS522U GUI/project/Implementation/Git Repo/Weather-App/public/main.html' title="sign up temporarily"><button id='menuButton' style={{background: 'url(' + themeTextMenu + ') 100% / cover no-repeat'}}></button></a>
+    <a href={require('./sign-up.html')} title="sign up temporarily"><button id='menuButton' style={{background: 'url(' + themeTextMenu + ') 100% / cover no-repeat'}}></button></a>
  )
 }
 
