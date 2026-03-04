@@ -74,12 +74,20 @@ function Tab({theme, colour, humidity, pollen}) {
   return (
     <div className='tab pixel'>
       <img src={require('./assets/' + theme + ' Tab.png')}></img>
-      <div id='tabInfo'>
-        <div id='humidityInfo'>
+      <div id='tabContainer'>
+        {/* <div id='tabInfo'>
+          <div id='humidityInfo'>
+            <img id='raindrop' className='pixel' src={require('./assets/Rain Drop.png')}></img>
+            <p style={{color: colour}}>{humidity}</p>
+          </div>
+          <div id='pollenInfo'>
+            <img id='flower' className='pixel' src={require('./assets/Flower.png')}></img>
+            <p style={{color: colour}}>{pollen}</p>
+          </div>
+        </div> */}
+        <div id='tabInfo'>
           <img id='raindrop' className='pixel' src={require('./assets/Rain Drop.png')}></img>
           <p style={{color: colour}}>{humidity}</p>
-        </div>
-        <div id='pollenInfo'>
           <img id='flower' className='pixel' src={require('./assets/Flower.png')}></img>
           <p style={{color: colour}}>{pollen}</p>
         </div>
