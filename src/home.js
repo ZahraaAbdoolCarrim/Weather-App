@@ -70,7 +70,7 @@ function Menu({theme}) {
   })
   return (
     <div className='menu pixel'>
-      <button id='menuButton' onClick={() => click(themes[themeNum])} style={{background: 'url(' + themeTextMenu + ') 100% / cover no-repeat'}}></button>
+      <Link to={'/sign-up'}><button id='menuButton' onClick={() => click(themes[themeNum])} style={{background: 'url(' + themeTextMenu + ') 100% / cover no-repeat'}}></button></Link>
     </div>
   )
 }
