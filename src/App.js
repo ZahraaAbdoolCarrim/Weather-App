@@ -81,11 +81,11 @@ function Tab({theme}) {
 
 function Location({theme, location, locationColour}) {
   return (
-    <div className='locationBg pixel'>
-      <a id='locationLink' href='https://www.google.com'><img src={require('./assets/' + theme + ' LocationBG.png')}></img></a>
+    <div className='location pixel'>
+      <img src={require('./assets/' + theme + ' LocationBG.png')}></img>
       <div id='locationInfo'>
         <img id='pin' className='pixel' src={require('./assets/Location Pin.png')}></img>
-        <p id='location' style={{color: locationColour}}>{location}</p>
+        <a id='locationText' href='https://www.google.com' style={{color: locationColour}}>{location}</a>
       </div>
     </div>
   )
@@ -141,15 +141,17 @@ function App() {
       imageRendering: 'pixelated',
       }}>
         
-      <div id='top'>
-        <Menu theme={"Blue"}/>
-        <Tab theme={"Blue"}/>
+      <div className='container'>
+        <div id='top'>
+          <Menu theme={"Blue"}/>
+          <Tab theme={"Blue"}/>
+        </div>
+
+        <Location theme={"Blue"} location={"Current Location"} locationColour={"#203C56"}/>
+        <Window />
+
+        <ScrollableForcast />
       </div>
-
-      <Location theme={"Blue"} location={"Current Location"} locationColour={"#203C56"}/>
-      <Window />
-
-      <ScrollableForcast />
 
     </div>
   );

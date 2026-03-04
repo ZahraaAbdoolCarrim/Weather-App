@@ -13,6 +13,12 @@
         align-items: center;
     }
 
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     img {
         width: 100%;
         height: 100%;
@@ -56,7 +62,7 @@
         justify-self: end;
     }
 
-    .locationBg {
+    .location {
         margin-bottom: 0.25rem;
         aspect-ratio: 54 / 7;
         width: 80vw;
@@ -75,16 +81,11 @@
         gap: 1rem;
     }
 
-    #location {
+    #locationText {
         margin: 0;
         font-size: 1.5rem;
-    }
-
-    #locationLink {
-        width: 100%;
-        height: 100%;
-        padding: 1rem;
-        top: 0;
+        font-family: "Jersey 15";
+        text-decoration: none;
     }
 
     #pin {
