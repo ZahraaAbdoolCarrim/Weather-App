@@ -14,11 +14,13 @@ function Window() {
 
 function ScrollableForcast( {weatherData}) {
   const time = new Date();
+  const temp = weatherData ? Math.round(weatherData.main.temp) + "°C": "N/A";
+  const precip = weatherData ? Math.round(weatherData.main.humidity) + "%": "N/A";
   return (
     <div className='scrollableForecast pixel'>
       <img src={require('./assets/Forecast BG.png')}></img>
       <div className='blocks'>
-        <ForecastBlock theme={'Blue'} selected={'Yes'} time={time.getHours() + ":00"} timeColour={"#0D2B45"} cloud={"Cloudy"} precip={"1%"} precipColour={"#203C56"} temp={"5°C"} tempColour={"#0D2B45"}/>
+        <ForecastBlock theme={'Blue'} selected={'Yes'} time={time.getHours() + ":00"} timeColour={"#0D2B45"} cloud={"Cloudy"} precip={precip} precipColour={"#203C56"} temp={temp} tempColour={"#0D2B45"}/>
         <ForecastBlock theme={'Blue'} selected={'No'} time={time.getHours() + 1 + ":00"} timeColour={"#F4D3AE"} cloud={"Rain"} precip={"1%"} precipColour={"#D08159"} temp={"5°C"} tempColour={"#FB7B3B"}/>
         <ForecastBlock theme={'Blue'} selected={'No'} time={time.getHours() + 2 + ":00"} timeColour={"#F4D3AE"} cloud={"Light_Rain"} precip={"1%"} precipColour={"#D08159"} temp={"5°C"} tempColour={"#FB7B3B"}/>
         <ForecastBlock theme={'Blue'} selected={'No'} time={time.getHours() + 3 + ":00"} timeColour={"#F4D3AE"} cloud={"Snow"} precip={"1%"} precipColour={"#D08159"} temp={"5°C"} tempColour={"#FB7B3B"}/>
@@ -97,11 +99,14 @@ function Pet({pet, colour}) {
 }
 
 async function fetchWeatherByCoords(latitude, longitude) {
-  const apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=672f61843ac0d6c9319f8f381d617cd9&units=metric`;
+  // const apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=672f61843ac0d6c9319f8f381d617cd9&units=metric`;
+  const city = "Mile End";
+  const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=672f61843ac0d6c9319f8f381d617cd9`;
   try {
     const response = await fetch(apiURL);
     if (!response.ok) throw new Error("Weather data not found.");
     const data = await response.json();
+    console.log(data);
     return data;
   }
   catch(error) {
