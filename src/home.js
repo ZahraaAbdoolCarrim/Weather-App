@@ -3,6 +3,7 @@ import './App.css';
 import './mobile.css';
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import {fetchWeatherByCoords} from './Weather.js';
 
 function Window() {
   return (
@@ -13,18 +14,20 @@ function Window() {
   )
 }
 
-function ScrollableForcast({theme}) {
+function ScrollableForcast({theme, weatherData}) {
+  const time = new Date().getHours();
+  const temp = weatherData ? Math.round(weatherData.main.temp) + "°C" : "N/A";
   return (
     <div className='scrollableForecast pixel'>
       <img src={require('./assets/Themes/' + theme + '/ForecastBG.png')}></img>
       <div id='blocksContainer'>
         <div className='blocks'>
-          <ForecastBlock theme={'Blue'} selected={'Yes'} time={"13:00"} timeColour={"#0D2B45"} cloud={"Cloudy"} precip={"1%"} precipColour={"#203C56"} temp={"5°C"} tempColour={"#0D2B45"}/>
-          <ForecastBlock theme={'Blue'} selected={'No'} time={"14:00"} timeColour={"#F4D3AE"} cloud={"Rain"} precip={"1%"} precipColour={"#D08159"} temp={"5°C"} tempColour={"#FB7B3B"}/>
-          <ForecastBlock theme={'Blue'} selected={'No'} time={"15:00"} timeColour={"#F4D3AE"} cloud={"Light_Rain"} precip={"1%"} precipColour={"#D08159"} temp={"5°C"} tempColour={"#FB7B3B"}/>
-          <ForecastBlock theme={'Blue'} selected={'No'} time={"16:00"} timeColour={"#F4D3AE"} cloud={"Snow"} precip={"1%"} precipColour={"#D08159"} temp={"5°C"} tempColour={"#FB7B3B"}/>
-          <ForecastBlock theme={'Blue'} selected={'No'} time={"17:00"} timeColour={"#F4D3AE"} cloud={"Snow"} precip={"1%"} precipColour={"#D08159"} temp={"5°C"} tempColour={"#FB7B3B"}/>
-          <ForecastBlock theme={'Blue'} selected={'No'} time={"18:00"} timeColour={"#F4D3AE"} cloud={"Snow"} precip={"1%"} precipColour={"#D08159"} temp={"5°C"} tempColour={"#FB7B3B"}/>
+          <ForecastBlock theme={'Blue'} selected={'Yes'} time={time + ":00"} timeColour={"#0D2B45"} cloud={"Cloudy"} precip={"1%"} precipColour={"#203C56"} temp={temp + "°C"} tempColour={"#0D2B45"}/>
+          <ForecastBlock theme={'Blue'} selected={'No'} time={time + 1 + ":00"} timeColour={"#F4D3AE"} cloud={"Rain"} precip={"1%"} precipColour={"#D08159"} temp={"°C"} tempColour={"#FB7B3B"}/>
+          <ForecastBlock theme={'Blue'} selected={'No'} time={time + 2 + ":00"} timeColour={"#F4D3AE"} cloud={"Light_Rain"} precip={"1%"} precipColour={"#D08159"} temp={"5°C"} tempColour={"#FB7B3B"}/>
+          <ForecastBlock theme={'Blue'} selected={'No'} time={time + 3 + ":00"} timeColour={"#F4D3AE"} cloud={"Snow"} precip={"1%"} precipColour={"#D08159"} temp={"5°C"} tempColour={"#FB7B3B"}/>
+          <ForecastBlock theme={'Blue'} selected={'No'} time={time + 4 + ":00"} timeColour={"#F4D3AE"} cloud={"Snow"} precip={"1%"} precipColour={"#D08159"} temp={"5°C"} tempColour={"#FB7B3B"}/>
+          <ForecastBlock theme={'Blue'} selected={'No'} time={time + 5 + ":00"} timeColour={"#F4D3AE"} cloud={"Snow"} precip={"1%"} precipColour={"#D08159"} temp={"5°C"} tempColour={"#FB7B3B"}/>
         </div>
       </div>
     </div>
@@ -112,36 +115,28 @@ function Pet({pet, colour}) {
   )
 }
 
-let longitude, latitude;
-
-navigator.geolocation.getCurrentPosition(
-
-  function(position) {
-    longitude = position.coords.longitude;
-    latitude = position.coords.longitude;
-    fetchWeatherByCoords(latitude, longitude);
-  },
-  function(error) {
-    console.error("Error getting geolocation: ", error);
-  }
-
-);
-
-async function fetchWeatherByCoords(latitude, longitude) {
-  const apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=672f61843ac0d6c9319f8f381d617cd9&units=metric`;
-  try {
-    const response = await fetch(apiURL);
-    if (!response.ok) throw new Error("Weather data not found.");
-    const data = await response.json();
-    console.log(data);
-  }
-  catch(error) {
-    console.log(error.message);
-  }
-
-}
-
 export function Home() {
+
+  const [weatherData, setWeatherData] = useState(null);
+  
+    useEffect(() => {
+  
+      let latitude, longitude;
+  
+      navigator.geolocation.getCurrentPosition(
+  
+      function(position) {
+        longitude = position.coords.longitude;
+        latitude = position.coords.longitude;
+        fetchWeatherByCoords().then(data => setWeatherData(data));
+      },
+      function(error) {
+        console.error("Error getting geolocation: ", error);
+      }
+  
+      );
+    
+    }, []);
 
   let theme = "Blue";
   let themeText = require("./assets/Themes/" + theme + "/Wallpaper.png");
@@ -163,7 +158,7 @@ export function Home() {
         <Location theme={"Blue"} location={"Current Location"} locationColour={"#203C56"}/>
         <Window />
 
-        <ScrollableForcast theme={"Blue"}/>
+        <ScrollableForcast theme={"Blue"} weatherData={weatherData}/>
     </div>
 
     </div>
