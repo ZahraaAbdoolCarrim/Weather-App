@@ -48,34 +48,50 @@ function ForecastBlock({theme, selected, time, timeColour, cloud, precip, precip
   )
 }
 
-function Menu({theme}) {
-  let themes = ["Blue", "Purple"];
-  let themeNum = 0;
+function MenuButton({theme, menu, toggle}) {
+  // let themes = ["Blue", "Purple"];
+  // let themeNum = 0;
 
-  let themeTextMenu = require("./assets/Themes/" + theme + "/Menu.png")
+  let themeText = require("./assets/Themes/" + theme + "/Menu.png")
 
-  const [wallTheme, setTheme] = useState(themes[themeNum])
+  // const [wallTheme, setTheme] = useState(themes[themeNum])
 
-  const click = wallTheme => {
-    themeNum++;
-    if (themeNum >= (themes.length)) {
-      themeNum = 0;
-    }
-    console.log("num: " + themeNum)
-    console.log("length: " + (themes.length - 1))
-    setTheme(wallTheme);
-  }
-  useEffect(() => {
-    let themeTextWall = require("./assets/Themes/" + wallTheme + "/Wallpaper.png");
-    document.getElementsByClassName("App")[0].style.background = 'url(' + themeTextWall + ')';
-    document.getElementsByClassName("App")[0].style.backgroundSize= '15rem';
+  // const click = wallTheme => {
+  //   themeNum++;
+  //   if (themeNum >= (themes.length)) {
+  //     themeNum = 0;
+  //   }
+  //   console.log("num: " + themeNum)
+  //   console.log("length: " + (themes.length - 1))
+  //   setTheme(wallTheme);
+  // }
+  // useEffect(() => {
+  //   let themeTextWall = require("./assets/Themes/" + wallTheme + "/Wallpaper.png");
+  //   document.getElementsByClassName("App")[0].style.background = 'url(' + themeTextWall + ')';
+  //   document.getElementsByClassName("App")[0].style.backgroundSize= '15rem';
 
-  })
+  // })
+
+
   return (
-    <div className='menu pixel'>
-      <button id='menuButton' onClick={() => click(themes[themeNum])} style={{background: 'url(' + themeTextMenu + ') 100% / cover no-repeat'}}></button>
+    <div className='menuButton pixel'>
+      <button id='menuButton' onClick={toggle} style={{background: 'url(' + themeText + ') 100% / cover no-repeat'}}></button>
     </div>
   )
+}
+
+function Menu({theme, menu, toggle}) {
+  let themeText = require("./assets/Themes/" + theme + "/Menu.png")
+  return(
+    <div className='overlayContainer'>
+      <div className='menu pixel'>
+        <img src={require('./assets/Shop Back.png')}></img>
+        <button id='menuButton' onClick={toggle} style={{background: 'url(' + themeText + ') 100% / cover no-repeat'}}></button>
+      </div>
+    </div>
+
+  )
+
 }
 
 function Tab({theme, colour, humidity, pollen}) {
@@ -117,6 +133,13 @@ function Pet({pet, colour}) {
 
 export function Home() {
 
+  const [menu, toggleMenu] = useState(false)
+
+  const toggle = () => {
+    toggleMenu(menu => !menu);
+
+  }
+
   const [weatherData, setWeatherData] = useState(null);
   
     useEffect(() => {
@@ -148,10 +171,14 @@ export function Home() {
     backgroundSize: '15rem',
     imageRendering: 'pixelated',
     }}>
-        
+
+
+
+
     <div className='container'>
+
         <div id='top'>
-        <Menu theme={"Blue"}/>
+        <MenuButton theme={"Blue"} menu={false} toggle={() => toggle()}/>
         <Tab theme={"Blue"} colour={"#FFDCB3"} humidity={"100%"} pollen={"2"}/>
         </div>
 
@@ -160,6 +187,8 @@ export function Home() {
 
         <ScrollableForcast theme={"Blue"} weatherData={weatherData}/>
     </div>
+
+    {menu && <Menu theme={"Blue"} menu={true} toggle={() => toggle()}/>}
 
     </div>
   );
