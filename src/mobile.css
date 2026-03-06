@@ -38,7 +38,7 @@
         image-rendering: crisp-edges;
     }
 
-    #top {
+    .top {
         display: flex;
         margin-top: 0.5rem;
         justify-content: space-between;
@@ -60,9 +60,14 @@
         border: none;
         cursor: pointer;
     }
+
+    /**************************
+            Menu Styles
+    ***************************/
     
     .menu {
         width: 100vw;
+        position: relative;
     }
 
     .overlayContainer {
@@ -73,6 +78,82 @@
         display: flex;
         align-items: center;
         background-color: rgba(0, 0, 0, 0.562);
+    }
+
+    .menuContainer {
+        position: absolute;
+        top: -0.5rem;
+        width: 100%;
+        height: 100%;
+        padding-top: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    #signUpButton {
+        background: url('assets/Sign Up Button.png') 100% / cover no-repeat;
+        aspect-ratio: 50 / 20;
+        width: 12rem;
+        border: none;
+        font-family: "Jersey 15";
+        font-size: 2rem;
+        color: white;
+        grid-area: 'signUp';
+        justify-self: start;
+        margin-left: 1.5rem;
+    }
+
+    .squareButton {
+        aspect-ratio: 38 / 38;
+        width: 5rem;
+        border: none;
+    }
+
+    #closeButton {
+        background: url('assets/Close Button.png') 100% / cover no-repeat;
+        font-family: 'Jersey 15';
+        font-size: 2rem;
+        color: white;
+        grid-area: 'close';
+        justify-self: end;
+        margin-right: 1.5rem;
+    }
+
+    .menuMiddle {
+        align-self: start;
+        margin-top: 1rem;
+        margin-left: 1.5rem;
+        display: flex;
+        gap: 2rem;
+    }
+
+    .menuText {
+        margin: 0;
+        font-size: 1.5rem;
+    }
+
+    #inventoryButton {
+        background: url('assets/Inventory Button.png') 100% / cover no-repeat;
+    }
+
+    #shopButton {
+        background: url('assets/Shop Button.png') 100% / cover no-repeat;
+    }
+
+    #taskButton {
+        background: url('assets/Tasks Button.png') 100% / cover no-repeat;
+    }
+
+    .menuIcon {
+        aspect-ratio: 18 / 18;
+        width: 4rem;
+        height: 4rem;
+    }
+    .menuContainer #menuButton {
+        align-self: end;
+        margin-right: 1.5rem;
     }
 
     /**************************

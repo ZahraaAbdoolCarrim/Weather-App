@@ -66,8 +66,32 @@ function Menu({theme, menu, toggle}) {
     <div className='overlayContainer'>
       <div className='menu pixel'>
         <img src={require('./assets/Menu Back.png')}></img>
-        <button id='menuButton' onClick={toggle} style={{background: 'url(' + themeText + ') 100% / cover no-repeat'}}></button>
-        <Link to={'/sign-up'}><button>Sign Up</button></Link>
+        <div className='menuContainer'>
+          <div className='top'>
+            <Link to={'/sign-up'}><button className='pixel' id='signUpButton'>Sign Up</button></Link>
+            <button id='closeButton' className='squareButton' onClick={toggle}>X</button>
+          </div>
+          <div className='menuMiddle'>
+            <div className='menuOption'>
+              <button className='pixel squareButton' id='inventoryButton'>
+                <img className='menuIcon pixel' src={require('./assets/Inventory Icon.png')}></img>
+              </button>
+              <p className='menuText'>Inventory</p>
+            </div>
+            <div className='menuOption'>
+              <button className='pixel squareButton' id='shopButton'>
+                <img className='menuIcon pixel' src={require('./assets/Shop Icon.png')}></img>
+              </button>
+              <p className='menuText'>Shop</p>
+            </div>
+            <div className='menuOption'>
+              <button className='pixel squareButton' id='taskButton'>
+                <img className='menuIcon pixel' src={require('./assets/Tasks Icon.png')}></img>
+              </button>
+              <p className='menuText'>Tasks</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -158,7 +182,7 @@ export function Home() {
 
     <div className='container'>
 
-        <div id='top'>
+        <div className='top'>
         <MenuButton theme={"Blue"} menu={false} toggle={() => toggle()}/>
         <Tab theme={"Blue"} colour={"#FFDCB3"} humidity={"100%"} pollen={"2"}/>
         </div>
