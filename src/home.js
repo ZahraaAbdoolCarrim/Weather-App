@@ -61,11 +61,11 @@ function MenuButton({theme, menu, toggle}) {
 }
 
 function MenuOption({type}) {
-  let buttonPath = require('./assets/' + type + ' Button.png')
+  let buttonPath = require('./assets/Menu/' + type + ' Button.png')
   return (
     <div className='menuOption'>
       <button className='pixel squareButton' style={{background: 'url(' + buttonPath +') 100% / cover no-repeat'}}>
-        <img className='menuIcon pixel' src={require('./assets/' + type + ' Icon.png')}></img>
+        <img className='menuIcon pixel' src={require('./assets/Menu/' + type + ' Icon.png')}></img>
       </button>
       <p className='menuText'>{type}</p>
     </div>
@@ -77,7 +77,7 @@ function Menu({theme, menu, toggle}) {
   return(
     <div className='overlayContainer'>
       <div className='menu pixel'>
-        <img src={require('./assets/Menu Back.png')}></img>
+        <img src={require('./assets/Menu/Menu Back.png')}></img>
         <div className='menuContainer'>
           <div className='top'>
             <Link to={'/sign-up'}><button className='pixel' id='signUpButton'>Sign Up</button></Link>
