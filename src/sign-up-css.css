@@ -1,10 +1,10 @@
 
 #background{
- background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+ background: url('assets/sign-up assets/beige wallpaper.png') lightgray 50% / cover no-repeat;
 } 
 
 .animalButton{
-    background-image: "src\assets\sign-up assets\button background.png" lightgray -114.895px -59.653px / 213.111% 261.514% no-repeat;
+    background-image: "src/assets/sign-up assets/button background.png" lightgray -114.895px -59.653px / 213.111% 261.514% no-repeat;
 ;
 
 

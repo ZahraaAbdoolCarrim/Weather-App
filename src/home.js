@@ -77,6 +77,7 @@ function MenuButton({theme, menu, toggle}) {
     <div className='menuButton pixel'>
       <button id='menuButton' onClick={toggle} style={{background: 'url(' + themeText + ') 100% / cover no-repeat'}}></button>
     </div>
+
   )
 }
 
@@ -87,6 +88,7 @@ function Menu({theme, menu, toggle}) {
       <div className='menu pixel'>
         <img src={require('./assets/Shop Back.png')}></img>
         <button id='menuButton' onClick={toggle} style={{background: 'url(' + themeText + ') 100% / cover no-repeat'}}></button>
+        <Link to={'/sign-up'}><button>Sign Up</button></Link>
       </div>
     </div>
 

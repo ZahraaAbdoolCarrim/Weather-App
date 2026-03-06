@@ -43,3 +43,11 @@ function displaySelection(animalType){
 function AnimalSelection(animalColours,options){
     /*if options[1] clicked, display animalColours[1] and the pawprint etc*/
 }
+
+export function SignUp() {
+    return (
+        <div className='signUp'>
+            <h1>Sign Up</h1>
+        </div>
+    )
+}
