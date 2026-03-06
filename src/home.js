@@ -3,6 +3,7 @@ import './App.css';
 import './mobile.css';
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import {fetchWeatherByCoords} from './Weather.js';
 
 function Window() {
   return (
@@ -13,18 +14,20 @@ function Window() {
   )
 }
 
-function ScrollableForcast({theme}) {
+function ScrollableForcast({theme, weatherData}) {
+  const time = new Date().getHours();
+  const temp = weatherData ? Math.round(weatherData.main.temp) + "°C" : "N/A";
   return (
     <div className='scrollableForecast pixel'>
       <img src={require('./assets/Themes/' + theme + '/ForecastBG.png')}></img>
       <div id='blocksContainer'>
         <div className='blocks'>
-          <ForecastBlock theme={'Blue'} selected={'Yes'} time={"13:00"} timeColour={"#0D2B45"} cloud={"Cloudy"} precip={"1%"} precipColour={"#203C56"} temp={"5°C"} tempColour={"#0D2B45"}/>
-          <ForecastBlock theme={'Blue'} selected={'No'} time={"14:00"} timeColour={"#F4D3AE"} cloud={"Rain"} precip={"1%"} precipColour={"#D08159"} temp={"5°C"} tempColour={"#FB7B3B"}/>
-          <ForecastBlock theme={'Blue'} selected={'No'} time={"15:00"} timeColour={"#F4D3AE"} cloud={"Light_Rain"} precip={"1%"} precipColour={"#D08159"} temp={"5°C"} tempColour={"#FB7B3B"}/>
-          <ForecastBlock theme={'Blue'} selected={'No'} time={"16:00"} timeColour={"#F4D3AE"} cloud={"Snow"} precip={"1%"} precipColour={"#D08159"} temp={"5°C"} tempColour={"#FB7B3B"}/>
-          <ForecastBlock theme={'Blue'} selected={'No'} time={"17:00"} timeColour={"#F4D3AE"} cloud={"Snow"} precip={"1%"} precipColour={"#D08159"} temp={"5°C"} tempColour={"#FB7B3B"}/>
-          <ForecastBlock theme={'Blue'} selected={'No'} time={"18:00"} timeColour={"#F4D3AE"} cloud={"Snow"} precip={"1%"} precipColour={"#D08159"} temp={"5°C"} tempColour={"#FB7B3B"}/>
+          <ForecastBlock theme={'Blue'} selected={'Yes'} time={time + ":00"} timeColour={"#0D2B45"} cloud={"Cloudy"} precip={"1%"} precipColour={"#203C56"} temp={temp + "°C"} tempColour={"#0D2B45"}/>
+          <ForecastBlock theme={'Blue'} selected={'No'} time={time + 1 + ":00"} timeColour={"#F4D3AE"} cloud={"Rain"} precip={"1%"} precipColour={"#D08159"} temp={"°C"} tempColour={"#FB7B3B"}/>
+          <ForecastBlock theme={'Blue'} selected={'No'} time={time + 2 + ":00"} timeColour={"#F4D3AE"} cloud={"Light_Rain"} precip={"1%"} precipColour={"#D08159"} temp={"5°C"} tempColour={"#FB7B3B"}/>
+          <ForecastBlock theme={'Blue'} selected={'No'} time={time + 3 + ":00"} timeColour={"#F4D3AE"} cloud={"Snow"} precip={"1%"} precipColour={"#D08159"} temp={"5°C"} tempColour={"#FB7B3B"}/>
+          <ForecastBlock theme={'Blue'} selected={'No'} time={time + 4 + ":00"} timeColour={"#F4D3AE"} cloud={"Snow"} precip={"1%"} precipColour={"#D08159"} temp={"5°C"} tempColour={"#FB7B3B"}/>
+          <ForecastBlock theme={'Blue'} selected={'No'} time={time + 5 + ":00"} timeColour={"#F4D3AE"} cloud={"Snow"} precip={"1%"} precipColour={"#D08159"} temp={"5°C"} tempColour={"#FB7B3B"}/>
         </div>
       </div>
     </div>
@@ -45,34 +48,52 @@ function ForecastBlock({theme, selected, time, timeColour, cloud, precip, precip
   )
 }
 
-function Menu({theme}) {
-  let themes = ["Blue", "Purple"];
-  let themeNum = 0;
+function MenuButton({theme, menu, toggle}) {
+  // let themes = ["Blue", "Purple"];
+  // let themeNum = 0;
 
-  let themeTextMenu = require("./assets/Themes/" + theme + "/Menu.png")
+  let themeText = require("./assets/Themes/" + theme + "/Menu.png")
 
-  const [wallTheme, setTheme] = useState(themes[themeNum])
+  // const [wallTheme, setTheme] = useState(themes[themeNum])
 
-  const click = wallTheme => {
-    themeNum++;
-    if (themeNum >= (themes.length)) {
-      themeNum = 0;
-    }
-    console.log("num: " + themeNum)
-    console.log("length: " + (themes.length - 1))
-    setTheme(wallTheme);
-  }
-  useEffect(() => {
-    let themeTextWall = require("./assets/Themes/" + wallTheme + "/Wallpaper.png");
-    document.getElementsByClassName("App")[0].style.background = 'url(' + themeTextWall + ')';
-    document.getElementsByClassName("App")[0].style.backgroundSize= '15rem';
+  // const click = wallTheme => {
+  //   themeNum++;
+  //   if (themeNum >= (themes.length)) {
+  //     themeNum = 0;
+  //   }
+  //   console.log("num: " + themeNum)
+  //   console.log("length: " + (themes.length - 1))
+  //   setTheme(wallTheme);
+  // }
+  // useEffect(() => {
+  //   let themeTextWall = require("./assets/Themes/" + wallTheme + "/Wallpaper.png");
+  //   document.getElementsByClassName("App")[0].style.background = 'url(' + themeTextWall + ')';
+  //   document.getElementsByClassName("App")[0].style.backgroundSize= '15rem';
 
-  })
+  // })
+
+
   return (
-    <div className='menu pixel'>
-      <Link to={'/sign-up'}><button id='menuButton' onClick={() => click(themes[themeNum])} style={{background: 'url(' + themeTextMenu + ') 100% / cover no-repeat'}}></button></Link>
+    <div className='menuButton pixel'>
+      <button id='menuButton' onClick={toggle} style={{background: 'url(' + themeText + ') 100% / cover no-repeat'}}></button>
     </div>
+
   )
+}
+
+function Menu({theme, menu, toggle}) {
+  let themeText = require("./assets/Themes/" + theme + "/Menu.png")
+  return(
+    <div className='overlayContainer'>
+      <div className='menu pixel'>
+        <img src={require('./assets/Menu Back.png')}></img>
+        <button id='menuButton' onClick={toggle} style={{background: 'url(' + themeText + ') 100% / cover no-repeat'}}></button>
+        <Link to={'/sign-up'}><button>Sign Up</button></Link>
+      </div>
+    </div>
+
+  )
+
 }
 
 function Tab({theme, colour, humidity, pollen}) {
@@ -112,36 +133,35 @@ function Pet({pet, colour}) {
   )
 }
 
-let longitude, latitude;
-
-navigator.geolocation.getCurrentPosition(
-
-  function(position) {
-    longitude = position.coords.longitude;
-    latitude = position.coords.longitude;
-    fetchWeatherByCoords(latitude, longitude);
-  },
-  function(error) {
-    console.error("Error getting geolocation: ", error);
-  }
-
-);
-
-async function fetchWeatherByCoords(latitude, longitude) {
-  const apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=672f61843ac0d6c9319f8f381d617cd9&units=metric`;
-  try {
-    const response = await fetch(apiURL);
-    if (!response.ok) throw new Error("Weather data not found.");
-    const data = await response.json();
-    console.log(data);
-  }
-  catch(error) {
-    console.log(error.message);
-  }
-
-}
-
 export function Home() {
+
+  const [menu, toggleMenu] = useState(false)
+
+  const toggle = () => {
+    toggleMenu(menu => !menu);
+
+  }
+
+  const [weatherData, setWeatherData] = useState(null);
+  
+    useEffect(() => {
+  
+      let latitude, longitude;
+  
+      navigator.geolocation.getCurrentPosition(
+  
+      function(position) {
+        longitude = position.coords.longitude;
+        latitude = position.coords.longitude;
+        fetchWeatherByCoords().then(data => setWeatherData(data));
+      },
+      function(error) {
+        console.error("Error getting geolocation: ", error);
+      }
+  
+      );
+    
+    }, []);
 
   let theme = "Blue";
   let themeText = require("./assets/Themes/" + theme + "/Wallpaper.png");
@@ -153,18 +173,24 @@ export function Home() {
     backgroundSize: '15rem',
     imageRendering: 'pixelated',
     }}>
-        
+
+
+
+
     <div className='container'>
+
         <div id='top'>
-        <Menu theme={"Blue"}/>
+        <MenuButton theme={"Blue"} menu={false} toggle={() => toggle()}/>
         <Tab theme={"Blue"} colour={"#FFDCB3"} humidity={"100%"} pollen={"2"}/>
         </div>
 
         <Location theme={"Blue"} location={"Current Location"} locationColour={"#203C56"}/>
         <Window />
 
-        <ScrollableForcast theme={"Blue"}/>
+        <ScrollableForcast theme={"Blue"} weatherData={weatherData}/>
     </div>
+
+    {menu && <Menu theme={"Blue"} menu={true} toggle={() => toggle()}/>}
 
     </div>
   );

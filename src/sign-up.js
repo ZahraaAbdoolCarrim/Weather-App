@@ -49,8 +49,8 @@ function AnimalSelection(animalColours,options){
 
 export function SignUp() {
     return (
-        <div className='SignUp'>
-            <h1>NEW PAGE</h1>
+        <div className='signUp'>
+            <h1>Sign Up</h1>
         </div>
     )
 }
