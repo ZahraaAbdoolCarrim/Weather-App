@@ -49,29 +49,8 @@ function ForecastBlock({theme, selected, time, timeColour, cloud, precip, precip
 }
 
 function MenuButton({theme, menu, toggle}) {
-  // let themes = ["Blue", "Purple"];
-  // let themeNum = 0;
 
   let themeText = require("./assets/Themes/" + theme + "/Menu.png")
-
-  // const [wallTheme, setTheme] = useState(themes[themeNum])
-
-  // const click = wallTheme => {
-  //   themeNum++;
-  //   if (themeNum >= (themes.length)) {
-  //     themeNum = 0;
-  //   }
-  //   console.log("num: " + themeNum)
-  //   console.log("length: " + (themes.length - 1))
-  //   setTheme(wallTheme);
-  // }
-  // useEffect(() => {
-  //   let themeTextWall = require("./assets/Themes/" + wallTheme + "/Wallpaper.png");
-  //   document.getElementsByClassName("App")[0].style.background = 'url(' + themeTextWall + ')';
-  //   document.getElementsByClassName("App")[0].style.backgroundSize= '15rem';
-
-  // })
-
 
   return (
     <div className='menuButton pixel'>
