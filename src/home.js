@@ -86,7 +86,7 @@ function Menu({theme, menu, toggle}) {
   return(
     <div className='overlayContainer'>
       <div className='menu pixel'>
-        <img src={require('./assets/Shop Back.png')}></img>
+        <img src={require('./assets/Menu Back.png')}></img>
         <button id='menuButton' onClick={toggle} style={{background: 'url(' + themeText + ') 100% / cover no-repeat'}}></button>
         <Link to={'/sign-up'}><button>Sign Up</button></Link>
       </div>
