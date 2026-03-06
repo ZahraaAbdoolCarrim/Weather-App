@@ -3,6 +3,7 @@ import './mobile.css';
 import './sign-up-css.css'
 import { useEffect, useState } from 'react';
 
+<h1>hi</h1>
 
 function animalSelection(catGif, dogGif, catImg, dogImg){
     const path = "./sign-up assets"
