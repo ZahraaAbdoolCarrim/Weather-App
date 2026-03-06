@@ -134,18 +134,6 @@
         font-size: 1.5rem;
     }
 
-    #inventoryButton {
-        background: url('assets/Inventory Button.png') 100% / cover no-repeat;
-    }
-
-    #shopButton {
-        background: url('assets/Shop Button.png') 100% / cover no-repeat;
-    }
-
-    #taskButton {
-        background: url('assets/Tasks Button.png') 100% / cover no-repeat;
-    }
-
     .menuIcon {
         aspect-ratio: 18 / 18;
         width: 4rem;
