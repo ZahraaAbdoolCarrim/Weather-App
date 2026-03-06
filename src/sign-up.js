@@ -2,6 +2,8 @@ import './App.css';
 import './mobile.css';
 import './sign-up-css.css'
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+
 
 <h1>hi</h1>
 
@@ -43,4 +45,12 @@ function displaySelection(animalType){
 /*general function to display options for colours of whatever animal*/
 function AnimalSelection(animalColours,options){
     /*if options[1] clicked, display animalColours[1] and the pawprint etc*/
+}
+
+export function SignUp() {
+    return (
+        <div className='SignUp'>
+            <h1>NEW PAGE</h1>
+        </div>
+    )
 }

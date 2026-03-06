@@ -1,6 +1,10 @@
 
 #background{
+<<<<<<< HEAD
  background: url("./assets/sign-up assets/beige wallpaper.png") lightgray 50% / cover no-repeat;
+=======
+ background: url('assets/sign-up assets/beige wallpaper.png') lightgray 50% / cover no-repeat;
+>>>>>>> 5c858d2f0536b0664c43918d6e0b3326b560cc09
 } 
 
 .animalButton{
