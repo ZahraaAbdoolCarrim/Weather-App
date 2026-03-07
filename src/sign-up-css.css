@@ -16,13 +16,10 @@ html,body{
     margin: 0;
 }
 
-.ButtonContainer{
-    display: flex;
-    margin-top: 2rem;
-    gap: 2rem;
-}
+/*-----HEADER CSS---------*/
 
 .headingContainer{
+    margin-top: 2rem;
     position: relative;
     text-align: center;
 }
@@ -37,11 +34,82 @@ html,body{
     top: 0;
     font-size: 3rem;
     color: #85696F;
-    
 }
 
-.petButton{
-    background-image: url('./assets/sign-up assets/button background-2.png') 100% / cover no-repeat;
+/*-----button CSS---------*/
+.ButtonContainer{
+    display: flex;
+    margin-top: 2rem;
+    gap: 2rem;
+}
+
+
+.petButtonUnselected{
+    background: url('./assets/sign-up assets/beigeButton.png') 100% / cover no-repeat;
+    size: 100%;
     border: none;
     width: 10rem;
+}
+
+.petButtonSelected{
+    background: url('./assets/sign-up assets/pinkButton.png') 100% / cover no-repeat;
+    size: 100%;
+    border: none;
+    width: 10rem;
+}
+
+/*naming pet*/
+.inputName{
+    font-size: 2rem;
+    color: #D0C2BF;
+    font-family: "Jersey 15";
+}
+
+input{
+    position: relative;
+    text-align: center;
+    border: none;
+    background-color: #FAF9F7;
+    font: #D0C2BF;
+}
+
+/*colour css*/
+.colourBackground{
+    background: url('./assets/sign-up assets/colourBackground.png') 100% cover no-repeat;
+    padding: None;
+    image-rendering: pixelated;
+    margin: 0;
+    size: 100%
+
+
+}
+
+.colourContainer{
+    display: flex;
+    margin-top: 2rem;
+    gap: 2rem;
+}
+
+.colourOption{
+    width: 5rem;
+    padding: none;
+    margin: none;
+    background: none;
+    background: none;
+    border: none;
+}
+
+button{
+    background: none;
+    border: none;
+    padding: none;
+    margin: none;
+}
+
+.colours{
+    display: flex;
+    flex-direction: column;
+    background-color: none;
+    padding: none;
+    gap: none;
 }
