@@ -1,9 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
 import './mobile.css';
+import './home.css';
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import {fetchWeatherByCoords} from './Weather.js';
+import { Pet, MenuButton, Menu } from './utils.js';
 
 function Window() {
   return (
@@ -48,54 +50,6 @@ function ForecastBlock({theme, selected, time, timeColour, cloud, precip, precip
   )
 }
 
-function MenuButton({theme, menu, toggle}) {
-
-  let themeText = require("./assets/Themes/" + theme + "/Menu.png")
-
-  return (
-    <div className='menuButton pixel'>
-      <button id='menuButton' onClick={toggle} style={{background: 'url(' + themeText + ') 100% / cover no-repeat'}}></button>
-    </div>
-
-  )
-}
-
-function MenuOption({type}) {
-  let buttonPath = require('./assets/Menu/' + type + ' Button.png')
-  return (
-    <div className='menuOption'>
-      <button className='pixel squareButton' style={{background: 'url(' + buttonPath +') 100% / cover no-repeat'}}>
-        <img className='menuIcon pixel' src={require('./assets/Menu/' + type + ' Icon.png')}></img>
-      </button>
-      <p className='menuText'>{type}</p>
-    </div>
-  )
-}
-
-function Menu({theme, menu, toggle}) {
-  let themeText = require("./assets/Themes/" + theme + "/Menu.png")
-  return(
-    <div className='overlayContainer'>
-      <div className='menu pixel'>
-        <img src={require('./assets/Menu/Menu Back.png')}></img>
-        <div className='menuContainer'>
-          <div className='top'>
-            <Link to={'/sign-up'}><button className='pixel' id='signUpButton'>Sign Up</button></Link>
-            <button id='closeButton' className='squareButton' onClick={toggle}>X</button>
-          </div>
-          <div className='menuMiddle'>
-            <MenuOption type='Inventory'/>
-            <MenuOption type='Shop'/>
-            <MenuOption type='Tasks'/>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  )
-
-}
-
 function Tab({theme, colour, humidity, pollen}) {
   return (
     <div className='tab pixel'>
@@ -119,16 +73,8 @@ function Location({theme, location, locationColour}) {
       <img src={require('./assets/Themes/' + theme + '/LocationBG.png')}></img>
       <div id='locationInfo'>
         <img id='pin' className='pixel' src={require('./assets/Location Pin.png')}></img>
-        <a id='locationText' href='https://www.google.com' style={{color: locationColour}}>{location}</a>
+        <Link to={'/location'}><p id='locationText' style={{color: locationColour}}>{location}</p></Link>
       </div>
-    </div>
-  )
-}
-
-function Pet({pet, colour}) {
-  return (
-    <div className='pet pixel'>
-      <img src={require('./assets/Pets/' + pet + ' ' + colour + '.gif')}></img>
     </div>
   )
 }
@@ -174,9 +120,6 @@ export function Home() {
     imageRendering: 'pixelated',
     }}>
 
-
-
-
     <div className='container'>
 
         <div className='top'>
@@ -190,7 +133,7 @@ export function Home() {
         <ScrollableForcast theme={"Blue"} weatherData={weatherData}/>
     </div>
 
-    {menu && <Menu theme={"Blue"} menu={true} toggle={() => toggle()}/>}
+    {menu && <Menu theme={"Blue"} menu={true} toggle={() => toggle()} option1={"Inventory"} option2={"Shop"} option3={"Tasks"}/>}
 
     </div>
   );
