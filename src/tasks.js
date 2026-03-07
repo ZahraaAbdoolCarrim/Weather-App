@@ -1,3 +1,6 @@
+import './App.css';
+import './mobile.css';
+import './tasks.css';
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { Pet, MenuButton, Menu } from './utils.js';
@@ -9,7 +12,7 @@ function CoinTab({theme, colour, coinCount}) {
             <div id='tabContainer'>
                 <div id='tabInfo'>
                     <img id='coin' className='pixel' src={require('./assets/Coin.png')}></img>
-                    <p style={{color: colour}}>{coinCount}</p>
+                    <p id='coinCount' style={{color: colour}}>{coinCount}</p>
                 </div>
             </div>
         </div>

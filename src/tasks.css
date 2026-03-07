@@ -1,0 +1,34 @@
+.tab {
+    margin-right: 0.5rem;
+    justify-self: end;
+    position: relative;
+}
+
+#tabContainer {
+    position: absolute;
+    top: 0;
+    width: 99%;
+    height: 94%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#tabInfo {
+  display: grid;
+  grid-template-areas: 'coin coinCount';
+  grid-template-columns: 1fr 1.5fr;
+}
+
+#tabInfo p {
+    margin: 0;
+    font-size: 2rem;
+}
+
+#coin {
+  grid-area: 'coin';
+}
+
+#coinCount {
+  grid-area: 'coinCount';
+}
