@@ -1,6 +1,7 @@
 import './App.css';
 import './mobile.css';
 import './sign-up-css.css'
+import './index.css'
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -47,10 +48,67 @@ function AnimalSelection(animalColours,options){
     /*if options[1] clicked, display animalColours[1] and the pawprint etc*/
 }
 
-export function SignUp() {
-    return (
-        <div className='signUp'>
-            <h1>Sign Up</h1>
+function Heading({text}){
+
+    return(
+        <div className = "headingContainer">
+            <img src={require("./assets/sign-up assets/Neutral header-outline.png")}></img>
+            <div className="headingText">
+                <p>{text}</p>
+            </div>
         </div>
     )
 }
+
+export function SignUp() {
+    let colour = "brown"
+    const [selected, toggleSelected] = useState(false);
+    const toggle = ()=>{
+        toggleSelected(selected=>!selected)
+        if (selected){
+            colour = "white"
+            console.log("WORK OR ELSE")
+        }
+        
+    }
+    return (
+    <div className="SignBackground pixel">
+        <div className="container">
+            {/* PUT EVERYTHING HERE IN THE CONTAINER DIV PLEASE */}
+            <Heading text={"Cat or Dog?"}/>
+            <div className = "ButtonContainer">
+                <button id='CatButton' className='petButton pixel'><img src={require("./assets/sign-up assets/"+colour+"-cat-silhouette.png")} onClick={toggle}></img></button>
+                <button id='CatButton' className='petButton pixel'><img src={require("./assets/sign-up assets/"+colour+"-dog-silhouette.png")} onClick={toggle}></img></button>
+            </div>
+        </div>
+    </div>
+
+    )
+}
+
+/*
+    const backStyle = {
+        backgroundImage: "./assets/sign-up assets/beige wallpaper.png",
+        backgroundSize : "cover",
+        backgroundRepeat : 'no-repeat'
+    };
+*/
+
+/*
+            <h1>Sign Up</h1>
+            <img src={require("./assets/sign-up assets/beige wallpaper.png")} class="background"></img>
+*/
+
+/*
+    let Sbackground = require("./assets/sign-up assets/beige wallpaper.png");
+    return (
+        <div class="SignBackground" style={{
+        background: 'url(' + Sbackground + ')',
+        width: '100vw',
+        height: '100vh',
+        backgroundSize: '15rem',
+        imageRendering: 'pixelated',
+        }}>
+            <h1>Hi</h1>
+
+        </div>*/
