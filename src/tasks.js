@@ -2,8 +2,21 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { Pet, MenuButton, Menu } from './utils.js';
 
-export function Tasks() {
+function CoinTab({theme, colour, coinCount}) {
+    return (
+        <div className='tab pixel'>
+            <img src={require('./assets/Themes/' + theme + '/Tab.png')}></img>
+            <div id='tabContainer'>
+                <div id='tabInfo'>
+                    <img id='coin' className='pixel' src={require('./assets/Coin.png')}></img>
+                    <p style={{color: colour}}>{coinCount}</p>
+                </div>
+            </div>
+        </div>
+    )
+}
 
+export function Tasks() {
     const[menu, toggleMenu] = useState(false)
 
     const toggle = () => {
@@ -22,14 +35,13 @@ export function Tasks() {
             imageRendering: 'pixelated',}}>
 
             <div className = 'container'>
-
                 <div className='top'>
                     <MenuButton theme={"Blue"} menu={false} toggle={() => toggle()}/>
+                    <CoinTab theme={"Blue"} colour={"#FFDCB3"} coinCount={"0"}/>
                 </div>
 
                 {/* CHANGE OPTION TO 'HOME'*/}
                 {menu && <Menu theme={"Blue"} menu={true} toggle={() => toggle()} option1={"Inventory"} option2={"Shop"} option3={"Tasks"}/>}
-
             </div>      
         </div>
     );
