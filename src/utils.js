@@ -19,7 +19,7 @@ function MenuOption({type}) {
   )
 }
 
-export function Menu({theme, menu, toggle}) {
+export function Menu({theme, menu, toggle, option1, option2, option3}) {
   let themeText = require("./assets/Themes/" + theme + "/Menu.png")
   return(
     <div className='overlayContainer'>
@@ -31,9 +31,9 @@ export function Menu({theme, menu, toggle}) {
             <button id='closeButton' className='squareButton' onClick={toggle}>X</button>
           </div>
           <div className='menuMiddle'>
-            <MenuOption type='Inventory'/>
-            <MenuOption type='Shop'/>
-            <MenuOption type='Tasks'/>
+            <MenuOption type={option1}/>
+            <MenuOption type={option2}/>
+            <MenuOption type={option3}/>
           </div>
         </div>
       </div>

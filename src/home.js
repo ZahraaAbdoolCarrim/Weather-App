@@ -73,7 +73,7 @@ function Location({theme, location, locationColour}) {
       <img src={require('./assets/Themes/' + theme + '/LocationBG.png')}></img>
       <div id='locationInfo'>
         <img id='pin' className='pixel' src={require('./assets/Location Pin.png')}></img>
-        <a id='locationText' href='https://www.google.com' style={{color: locationColour}}>{location}</a>
+        <Link to={'/location'}><p id='locationText' style={{color: locationColour}}>{location}</p></Link>
       </div>
     </div>
   )
@@ -133,7 +133,7 @@ export function Home() {
         <ScrollableForcast theme={"Blue"} weatherData={weatherData}/>
     </div>
 
-    {menu && <Menu theme={"Blue"} menu={true} toggle={() => toggle()}/>}
+    {menu && <Menu theme={"Blue"} menu={true} toggle={() => toggle()} option1={"Inventory"} option2={"Shop"} option3={"Tasks"}/>}
 
     </div>
   );

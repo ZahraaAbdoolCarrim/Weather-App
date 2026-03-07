@@ -7,6 +7,7 @@ import { Home } from './home';
 import { SignUp } from './sign-up';
 import { Shop } from './shop';
 import { Tasks } from './tasks';
+import { Location } from './location';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
         <Route path='/sign-up' element={<SignUp />}/>
         <Route path='/shop' element={<Shop />}/>
         <Route path='/tasks' element={<Tasks />}/>
+        <Route path='/location' element={<Location />}/>
       </Routes>
     </BrowserRouter>
   );

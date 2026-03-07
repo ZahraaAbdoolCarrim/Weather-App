@@ -81,6 +81,10 @@
     margin: 0;
     font-size: 1.5rem;
     font-family: "Jersey 15";
+
+}
+
+.location a {
     text-decoration: none;
 }
 
