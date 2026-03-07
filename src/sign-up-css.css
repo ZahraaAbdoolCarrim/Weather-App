@@ -1,15 +1,47 @@
 
-#background{
- background: url('assets/sign-up assets/beige wallpaper.png') lightgray 50% / cover no-repeat;
+.SignBackground{
+    background-image: url('./assets/sign-up assets/beige wallpaper.png');
+    background-size : "cover";
+    background-repeat: 'no-repeat';
+    padding: None;
+    image-rendering: pixelated;
+    width: 100vw;
+    height: 300rem;
+    margin: 0;
 } 
 
-.animalButton{
-    background-image: "src/assets/sign-up assets/button background.png" lightgray -114.895px -59.653px / 213.111% 261.514% no-repeat;
-;
-
-
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
 }
 
-.animalButtonImg{
+.ButtonContainer{
+    display: flex;
+    margin-top: 2rem;
+    gap: 2rem;
+}
+
+.headingContainer{
+    position: relative;
+    text-align: center;
+}
+
+.headingText{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    font-size: 3rem;
+    color: #85696F;
     
+}
+
+.petButton{
+    background-image: url('./assets/sign-up assets/button background-2.png') 100% / cover no-repeat;
+    border: none;
+    width: 10rem;
 }
