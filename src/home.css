@@ -1,0 +1,181 @@
+/**************************
+    Humidity-Pollen Styles
+***************************/
+
+.tab {
+    margin-right: 0.5rem;
+    justify-self: end;
+    position: relative;
+}
+
+#tabContainer {
+    position: absolute;
+    top: 0;
+    width: 99%;
+    height: 94%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#tabInfo {
+    display: grid;
+    grid-template-areas: 
+    'drop stat1'
+    'flower stat2';
+
+    grid-template-columns: 1fr 1.5fr;
+
+    justify-items: start;
+    column-gap: 0.2rem;
+
+}
+
+#tabInfo p {
+    margin: 0;
+    font-size: 1.15rem;
+}
+
+#raindrop {
+    width: 1.25rem;
+    grid-area: 'drop';
+}
+
+#raindrop p {
+    grid-area: 'stat1';
+}
+
+#flower {
+    width: 1.25rem;
+    grid-area: 'flower';
+}
+
+#flower p {
+    grid-area: 'stat2';
+}
+
+/**************************
+        Location Styles
+***************************/
+
+.location {
+    margin-bottom: 0.25rem;
+    aspect-ratio: 54 / 7;
+    width: 80vw;
+    position: relative;
+    text-align: center;
+}
+
+#locationInfo {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    gap: 1rem;
+}
+
+#locationText {
+    margin: 0;
+    font-size: 1.5rem;
+    font-family: "Jersey 15";
+    text-decoration: none;
+}
+
+#pin {
+    width: 6%;
+    height: 55%;
+}
+
+/**************************
+    Window Object Styles
+***************************/
+
+.window {
+    position: relative;
+}
+
+.pet {
+    position: absolute;
+    bottom: 15%;
+    left: 21%;
+    aspect-ratio: 32 / 32;
+    width: 12rem;
+
+}
+
+#window {
+    width: 124vw;
+    height: 128vw;
+    aspect-ratio: 58 / 65;
+}
+
+/**************************
+    Scrollable Forecast Styles
+***************************/
+
+.scrollableForecast {
+    margin-top: 0.5rem;
+    width: 100vw;
+    aspect-ratio: 48 / 22;
+    position: relative;
+}
+
+#blocksContainer {
+    width: 92%;
+    height: 100%;
+    position: absolute;
+    top: 1.2rem;
+    left: 1rem;
+}
+
+.blocks {
+    height: 9rem;
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    justify-content: space-between;
+    gap: 0.4rem;
+
+}
+
+.forecastBlock {
+    position: relative;
+    min-width: 5.5rem;
+
+}
+
+#info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 0rem;
+    left: 1rem;
+}
+
+#time {
+    text-align: center;
+    font-size: 2rem;
+    margin: 0;
+}
+
+#cloud {
+    width: 3.5rem;
+    height: 3.5rem;
+    aspect-ratio: 1 / 1;
+}
+
+#precipitation {
+    margin: 0;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#temp {
+    margin: 0;
+    text-align: center;
+    font-size: 2rem;
+}
