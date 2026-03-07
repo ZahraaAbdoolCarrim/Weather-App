@@ -64,9 +64,9 @@ function MenuOption({type}) {
   let buttonPath = require('./assets/Menu/' + type + ' Button.png')
   return (
     <div className='menuOption'>
-      <button className='pixel squareButton' style={{background: 'url(' + buttonPath +') 100% / cover no-repeat'}}>
+      <Link to={'/' + type.toLowerCase()}><button className='pixel squareButton' style={{background: 'url(' + buttonPath +') 100% / cover no-repeat'}}>
         <img className='menuIcon pixel' src={require('./assets/Menu/' + type + ' Icon.png')}></img>
-      </button>
+      </button></Link>
       <p className='menuText'>{type}</p>
     </div>
   )

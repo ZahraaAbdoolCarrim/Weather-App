@@ -246,9 +246,10 @@
     .pet {
         position: absolute;
         bottom: 15%;
-        left: 18%;
-        width: 12rem;
+        left: 21%;
         aspect-ratio: 32 / 32;
+        width: 12rem;
+
     }
 
     #window {
