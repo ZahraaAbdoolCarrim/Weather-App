@@ -12,7 +12,6 @@ function MenuOption({type}) {
   return (
     <div className='menuOption'>
       <Link to={'/' + type.toLowerCase()}><button className='pixel squareButton' style={{background: 'url(' + buttonPath +') 100% / cover no-repeat'}}>
-        <img className='menuIcon pixel' src={require('./assets/Menu/' + type + ' Icon.png')}></img>
       </button></Link>
       <p className='menuText'>{type}</p>
     </div>
@@ -28,7 +27,7 @@ export function Menu({theme, menu, toggle, option1, option2, option3}) {
         <div className='menuContainer'>
           <div className='top'>
             <Link to={'/sign-up'}><button className='pixel' id='signUpButton'>Sign Up</button></Link>
-            <button id='closeButton' className='squareButton' onClick={toggle}>X</button>
+            <button id='closeButton' className='squareButton pixel' onClick={toggle}>X</button>
           </div>
           <div className='menuMiddle'>
             <MenuOption type={option1}/>

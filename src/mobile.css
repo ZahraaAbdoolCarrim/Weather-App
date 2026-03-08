@@ -94,8 +94,8 @@
 
     #signUpButton {
         background: url('assets/Menu/Sign Up Button.png') 100% / cover no-repeat;
-        aspect-ratio: 50 / 20;
-        width: 12rem;
+        aspect-ratio: 46 / 16;
+        width: 14rem;
         border: none;
         font-family: "Jersey 15";
         font-size: 2rem;
@@ -106,7 +106,7 @@
     }
 
     .squareButton {
-        aspect-ratio: 38 / 38;
+        aspect-ratio: 32 / 32;
         width: 5rem;
         border: none;
     }
